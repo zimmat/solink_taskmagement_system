@@ -1,0 +1,16 @@
+{
+   "compilerOptions": {
+     "target": "es2021",
+     "module": "es2022",
+     "moduleResolution": "node",
+     "allowSyntheticDefaultImports": true,
+     "allowJs": true,
+     "outDir": "./build",
+     "emitDecoratorMetadata": true,
+     "experimentalDecorators": true,
+     "sourceMap": true
+   },
+   "include": ["src/**/*.ts"],
+   "exclude": ["node_modules"]
+ }
+ 
