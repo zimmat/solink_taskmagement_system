@@ -12,8 +12,8 @@ const connectDB = () => {
     logging: false,
     entities: ['src/entities/**/*.ts'],
     migrations: ['src/migrations/**/*.ts'],
-    "extra": {
-      "poolSize": 10
+    extra : {
+      "poolSize": 40
     }
   })
   return dataSource.initialize()
