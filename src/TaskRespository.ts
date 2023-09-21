@@ -12,6 +12,10 @@ export class TaskRepository {
     const tasks = await this.taskRepository.find();
     return tasks;
   }
+  async getTasksFiltered(completed: boolean): Promise<Task[]> {
+    const tasksFiltered = await this.taskRepository.find({ where: { completed } });
+    return tasksFiltered;
+  }
 }
 
 

@@ -18,6 +18,7 @@ export const typeDefs = gql`
   type Query {
     users: [User]
     tasks: [Task]
+    taskFiltered(completed: Boolean!): [Task]
   }
 
   type Mutation {

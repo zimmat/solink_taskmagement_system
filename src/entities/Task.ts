@@ -21,7 +21,7 @@ export class Task {
   @Column({ nullable: true })
   user_id: number;
 
-
+}
 
 
 

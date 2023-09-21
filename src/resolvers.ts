@@ -13,6 +13,11 @@ const resolvers = {
       const tasks = await taskRepository.find();
       return tasks;
     },
+    taskFiltered: async (_, { completed }, { dataSource }) => {
+      const taskRepository = dataSource.getRepository(Task);
+      const tasksFiltered = await taskRepository.find({ where: { completed } });
+      return tasksFiltered;
+    },
   },
   Mutation: {
     createUser: async (_, { name }, { dataSource }) => {
