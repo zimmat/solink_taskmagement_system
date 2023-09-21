@@ -32,7 +32,17 @@ const resolvers = {
       const savedTask = await taskRepository.save(newTask);
       return savedTask;
     },
-  },
-};
+    markTaskComplete: async (_, { taskId }, { dataSource }) => {
+      const taskRepository = dataSource.getRepository(Task);
+      const task = await taskRepository.findOne(taskId);
+      if (!task) {
+        throw new Error(`Task with ID ${taskId} not found`);
+      }
+      task.completed = true;
+      const updatedTask = await taskRepository.save(task);
+      return updatedTask;
+    }
+  }
+}
 
 export { resolvers };
