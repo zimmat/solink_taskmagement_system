@@ -1,13 +1,14 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
 import { Task } from './Task';
 
-@Entity()
+@Entity("users")
 export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column()
-  username: string;
+  @Column({ nullable: true })
+  name: string;
+  
 
   @OneToMany(() => Task, (task) => task.user)
   tasks: Task[];

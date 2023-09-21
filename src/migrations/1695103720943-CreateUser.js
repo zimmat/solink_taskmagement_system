@@ -1,21 +1,21 @@
-import { MigrationInterface, QueryRunner, Table } from "typeorm";
+import { MigrationInterface, QueryRunner, Table } from 'typeorm';
 
-export class CreateUser1695103720943 {
+class CreateUser1695103720943 {
   async up(queryRunner) {
     await queryRunner.createTable(
       new Table({
-        name: "users",
+        name: 'users',
         columns: [
           {
             name: 'id',
-            type: 'int',
+            type: 'serial',
             isPrimary: true,
             isGenerated: true,
             generationStrategy: 'increment',
           },
           {
-            name: "name",
-            type: "varchar",
+            name: 'name',
+            type: 'varchar',
           },
         ],
       })
@@ -23,7 +23,8 @@ export class CreateUser1695103720943 {
   }
 
   async down(queryRunner) {
-    await queryRunner.dropTable("users");
+    await queryRunner.dropTable('users');
   }
 }
 
+export default CreateUser1695103720943;
